@@ -85,6 +85,22 @@ client.on(`message`, async message => {
 
     message.channel.send(`${message.author} has ${points} points!`);
   }
+
+  if (command === 'leaderboard') {
+    if (args.length > 0) {
+      return message.channel.send(`Invalid use of command`);
+    }
+    const users = await User.find({});
+
+    var leaderboardDisplay = '';
+    users.map(user => {
+      leaderboardDisplay += `${user.user.username}: ${user.points} points\n`;
+    });
+  }
+
+  message.channel.send(
+    '```json\n' + '"CTF Leaderboard"\n\n' + leaderboardDisplay + '```'
+  );
 });
 
 client.login(token);
