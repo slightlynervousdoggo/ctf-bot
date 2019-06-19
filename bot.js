@@ -96,11 +96,10 @@ client.on(`message`, async message => {
     users.map(user => {
       leaderboardDisplay += `${user.user.username}: ${user.points} points\n`;
     });
+    message.channel.send(
+      '```json\n' + '"CTF Leaderboard"\n\n' + leaderboardDisplay + '```'
+    );
   }
-
-  message.channel.send(
-    '```json\n' + '"CTF Leaderboard"\n\n' + leaderboardDisplay + '```'
-  );
 });
 
 client.login(token);
