@@ -9,6 +9,10 @@ const FlagSchema = new Schema({
   flagValue: {
     type: String,
     required: true
+  },
+  points: {
+    type: Number,
+    required: true
   }
 });
 
