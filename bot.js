@@ -37,7 +37,9 @@ client.on(`message`, async message => {
       if (msg !== dbflag.flagValue) {
         message.channel.send('Wrong!');
       } else {
-        message.channel.send(`Correct! 10 points for ${message.author}!`);
+        message.channel.send(
+          `Correct! ${flag.points} points for ${message.author}!`
+        );
       }
     }
   });
