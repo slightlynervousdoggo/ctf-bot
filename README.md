@@ -23,7 +23,15 @@ $ npm run server
 
 For production environments...
 
-... not setup yet
+- Install pm2 globally
+- Generate a ecosystem.config.js with `pm2 ecosystem`
+- Enter the enviromental variables listed below under the env object
+
+```sh
+cd ctf-bot
+$ npm i --production
+$ npm start
+```
 
 ### Mongodb
 
