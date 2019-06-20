@@ -115,10 +115,10 @@ client.on(`message`, async message => {
 
   if (command === 'help') {
     message.channel.send(`
-\`\`\`json
-- ctf!flag# [flag_value]: Submit a flag number to the bot. Replace # with the number, and [flag_value] with the actual flag.
-- ctf!points: Show the amount of points you have
-- ctf!leaderboard: Show points for all users that are entered.
+\`\`\`md
+- <ctf!flag# [flag_value]>: Submit a flag number to the bot. Replace # with the number, and [flag_value] with the actual flag.
+- <ctf!points>: Show the amount of points you have
+- <ctf!leaderboard>: Show points for all users that are entered.
 \`\`\`
     `);
   }
