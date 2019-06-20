@@ -81,6 +81,18 @@ client.on(`message`, async message => {
   if (command === 'points') {
     const { id } = message.author;
     const foundUser = await User.findOne({ 'user.id': id });
+
+    try {
+      if (!foundUser) {
+        return message.channel.send(
+          `User not found. Please submit flag1 to enter CTF event.`
+        );
+      }
+    } catch (err) {
+      message.channel.send(`Oops! Ran into an error!`);
+      console.error(err);
+    }
+
     const { points } = foundUser;
 
     message.channel.send(`${message.author} has ${points} points!`);
