@@ -102,7 +102,7 @@ client.on(`message`, async message => {
     if (args.length > 0) {
       return message.channel.send(`Invalid use of command`);
     }
-    const users = await User.find({});
+    const users = await User.find().sort({ points: -1 });
 
     var leaderboardDisplay = '';
     users.map(user => {
