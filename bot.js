@@ -120,7 +120,7 @@ const startBot = async () => {
         users.map(user => {
           leaderboardDisplay += `${user.user.username}: ${user.points} points`;
           user.flagsSubmitted.map(flag => {
-            leaderboardDisplay += ` ${flag} ☑`;
+            leaderboardDisplay += ` ${flag.flag} ☑`;
           });
           leaderboardDisplay += `\n`;
         });
