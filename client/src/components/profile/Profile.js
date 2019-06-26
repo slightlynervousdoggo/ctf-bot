@@ -32,7 +32,7 @@ class Profile extends Component {
         </h5>
         <h1>{this.state.data.user.username}</h1>
         <h3>{this.state.data.points} Points</h3>
-        <p>{this.state.data.flagsSubmitted.map(flag => `${flag} ☑   `)}</p>
+        <p>{this.state.data.flagsSubmitted.map(flag => `${flag.flag} ☑   `)}</p>
       </Fragment>
     );
   }
