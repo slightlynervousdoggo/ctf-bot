@@ -46,18 +46,32 @@ const startBot = async () => {
                     id,
                     username
                   },
-                  points: flag.points,
-                  flagsSubmitted: dbFlag.flagNumber
+                  points: flag.points
                 });
+
+                const newFlagSubmitted = {
+                  flag: dbFlag.flagNumber
+                };
+
+                user.flagsSubmitted.push(newFlagSubmitted);
+
                 await user.save();
               } else {
-                if (foundUser.flagsSubmitted.includes(dbFlag.flagNumber)) {
-                  return message.channel.send(`Flag already submitted`);
+                const findFlag = foundUser.flagsSubmitted
+                  .map(item => item.flag)
+                  .indexOf(dbFlag.flagNumber);
+
+                if (findFlag > -1) {
+                  return message.channel.send(`Flag already submitted!`);
                 }
+
+                const newFlagSubmitted = {
+                  flag: dbFlag.flagNumber
+                };
 
                 const flagsSubmitted = [
                   ...foundUser.flagsSubmitted,
-                  dbFlag.flagNumber
+                  newFlagSubmitted
                 ];
 
                 await User.findOneAndUpdate(

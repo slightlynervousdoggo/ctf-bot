@@ -16,10 +16,18 @@ const UserSchema = new Schema({
     type: Number,
     required: true
   },
-  flagsSubmitted: {
-    type: Array,
-    required: true
-  }
+  flagsSubmitted: [
+    {
+      flag: {
+        type: String,
+        required: true
+      },
+      date: {
+        type: Date,
+        default: Date.now
+      }
+    }
+  ]
 });
 
 module.exports = User = mongoose.model('user', UserSchema);
