@@ -29,7 +29,7 @@ const startBot = async () => {
       const flags = await Flag.find();
 
       flags.map(async flag => {
-        if (command === flag.flagNumber) {
+        if (command === flag.flagNumber.toLowerCase()) {
           const msg = args.join('');
           try {
             const dbFlag = await Flag.findOne({ flagNumber: flag.flagNumber });
